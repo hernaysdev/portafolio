@@ -1,0 +1,72 @@
+name: CI y despliegue
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  pruebas:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          # La caja corre Node 18.
+          node-version: 18
+          cache: npm
+      - run: npm ci --omit=dev --no-audit --no-fund
+      - name: Sintaxis de los JS
+        run: find src -name '*.js' -not -path '*/node_modules/*' -print0 | xargs -0 -n1 node --check
+      - name: El servidor arranca y sirve el sitio
+        run: |
+          PORT=4999 node src/app.js > servidor.log 2>&1 &
+          for i in $(seq 1 20); do curl -fsS -o /dev/null http://127.0.0.1:4999/ && break; sleep 0.5; done
+          curl -fsS http://127.0.0.1:4999/ | grep -qi '<html'
+          curl -fsS -o /dev/null http://127.0.0.1:4999/assets/styles.css
+          curl -fsS -o /dev/null http://127.0.0.1:4999/assets/js/app.js
+          curl -fsS -o /dev/null http://127.0.0.1:4999/assets/cv-hernays-gonzalez.pdf
+          # El formulario rechaza un envío vacío sin intentar mandar correo.
+          code=$(curl -s -o /dev/null -w '%{http_code}' -X POST -H 'Content-Type: application/json' -d '{}' http://127.0.0.1:4999/correo)
+          echo "POST /correo vacío -> $code"
+          [ "$code" -ge 400 ] && [ "$code" -lt 500 ]
+      - if: failure()
+        run: cat servidor.log || true
+
+  desplegar:
+    name: Desplegar a hernays.dubenails.com
+    needs: pruebas
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    concurrency:
+      group: produccion
+      cancel-in-progress: false
+    environment:
+      name: produccion
+      url: https://hernays.dubenails.com
+    steps:
+      - uses: actions/checkout@v4
+      - name: Llave de despliegue
+        env:
+          LLAVE: ${{ secrets.CAJA_DEPLOY_KEY }}
+        run: |
+          install -d -m 700 ~/.ssh
+          printf '%s\n' "$LLAVE" > ~/.ssh/caja
+          chmod 600 ~/.ssh/caja
+          echo "13.140.40.51 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDDVKgimyZBIATW2o/Z7nPdD+RTyrbZ5oUZd3pQ5RX3F" > ~/.ssh/known_hosts
+      - name: Enviar a la caja
+        # La llave solo puede ejecutar /usr/local/bin/desplegar-portafolio en la caja:
+        # cambia src/, reinicia y verifica; si el sitio no responde, vuelve atrás solo.
+        run: |
+          git archive --format=tar.gz HEAD src package.json package-lock.json \
+            | ssh -i ~/.ssh/caja -o BatchMode=yes -o IdentitiesOnly=yes webs@13.140.40.51 "$GITHUB_SHA"
+      - name: Verificar desde afuera
+        run: |
+          sleep 3
+          curl -fsS https://hernays.dubenails.com/ | grep -qi '<html'
+      - name: Borrar la llave
+        if: always()
+        run: rm -f ~/.ssh/caja
