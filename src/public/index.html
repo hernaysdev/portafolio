@@ -1,144 +1,236 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="es">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Venezuela</title>
-    <link href="assets/styles.css" rel="stylesheet" />
-    <link href="assets/responsive.css" rel="stylesheet" />
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hernays Gonzalez · Full-Stack Developer</title>
+  <meta name="description" content="Hernays Gonzalez Vibanco — Full-Stack Developer: Node.js, NestJS, Angular, Go, microservicios y BFF para banca y retail financiero.">
+  <meta property="og:title" content="Hernays Gonzalez · Full-Stack Developer">
+  <meta property="og:description" content="Node.js · NestJS · Angular · Go · Microservicios · Cloud & DevOps">
+  <meta property="og:image" content="https://hernays.dubenails.com/assets/img/foto-hernays.jpg">
+  <meta name="theme-color" content="#0b0f17">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <link href="assets/styles.css" rel="stylesheet">
 </head>
-
 <body>
-    <button id="btnInicio" onclick="subirScroll()"></button>
-    <div class="modal">
-        <div class="contentModal">
-                <h2>Selecciona un Idioma</h2>
-            <div>
-                <button id="btnEspanol" class="btnModal">Espanol</button>
-                <button id="btnIngles"  class="btnModal">Ingles</button>
-            </div>
-        </div>
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a class="nav__logo" href="#inicio"><span>&lt;</span>HG<span>/&gt;</span></a>
+      <nav class="nav__links" id="navLinks">
+        <a href="#sobre-mi" data-i18n="nav.about">Sobre mí</a>
+        <a href="#experiencia" data-i18n="nav.exp">Experiencia</a>
+        <a href="#proyectos" data-i18n="nav.projects">Proyectos</a>
+        <a href="#skills" data-i18n="nav.skills">Tecnologías</a>
+        <a href="#contacto" data-i18n="nav.contact">Contacto</a>
+      </nav>
+      <div class="nav__actions">
+        <button class="lang" id="btnIdioma" aria-label="Cambiar idioma / Change language">EN</button>
+        <button class="burger" id="btnMenu" aria-label="Menú" aria-expanded="false"><span></span><span></span><span></span></button>
+      </div>
     </div>
-    <div id="content">
-        <div id="content-header">
-            <header id="header">
-                <div class="pasador">
-                    <span class="idioma">EN</span>
-                    <div class="btn_pasador"></div>
-                </div>
-                <ul class="ul">
-                    <li></li>
-                    <li>
-                        <a id="btnSobreMi" href="#acercaDeMi">About me</a>
-                    </li>
-                    <li>
-                        <a href="#proyectos-link">Projects</a>
-                    </li>
-                    <li>
-                        <a href="#contacto-link">Contact</a>
-                    </li>
-                    <li>
-                        <a id="curriculo" href="./assets/curriculo3.pdf">Curriculum</a>
-                    </li>
-                </ul>
-            </header>
-            <div id="presentacion">
-                <div class="cajaLogo">
-                    <span id="logo">
-                        <>
-                    </span>
-                </div>
-                <div class="cajaNombre">
-                    <h2 class="nombres nombre-flex">Hernays Gonzalez Vibanco</h2>
-                    <h3 class="nombres nombre-flex-2">Full Stack Developer</h3>
-                </div>
-            </div>
-        </div>
+  </header>
 
-        <section class="section index">
-            <div id="acercaDeMi">
-                <div id="figura">
-                    <img src="assets/img/foto-hernays.jpg">
-                </div>
-                <div id="sobreMi">
-                    <h1>About me</h1>
-                    <p class="sobreMi1">
-                        I am a systems engineer with more than 5 years of experience, I constantly continue taking
-                        courses for my professional development, I consider myself a person who likes to always be at
-                        the forefront of technological advances.
-                    </p>
-                    <p class="sobreMi2">
-                        Today I am looking for a company that gives me the opportunity to contribute my knowledge and in
-                        the same way allows me to grow both professionally and personally.</p>
-                </div>
-            </div>
-            <div id="tecnologias">
-                <div id="tecnologias-content">
-                    <div>
-                        <h5 class="habilidades">Skills</h5>
-                        <ul>
-                            <li> HTML5 </li>
-                            <li> CSS3 </li>
-                            <li> SASS </li>
-                            <li> JavaScript </li>
-                            <li> TypeScript </li>
-                            <li> NodeJS </li>
-                            <li> NestJs </li>
-                            <li> JQuery </li>
-                            <li> Angular </li>
-                            <li> React </li>
-                            <li> JestJs </li>
-                            <li> PHP </li>
-                            <li> MongoDB </li>
-                            <li> MySql </li>
-                            <li> Git - GitLab - GitHub</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h5>Hobbies</h5>
-                        <ul class="hobbies">
-                            <li>
-                                Family
-                            </li>
-
-                            <li>
-                                Nature
-                            </li>
-                            <li>
-                                Share
-                            </li>
-                            <li>
-                                Travels
-                            </li>
-                            <li>
-                                Sports
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section id="proyectos-link" class="section proyectos">
-            <!--proyectos-->
-        </section>
-        <div id="contacto-link" class="contacto">
-            <!--contacto-->
+  <main>
+    <section class="hero" id="inicio">
+      <div class="hero__text">
+        <p class="mono hero__hola" data-i18n="hero.hello">Hola, soy</p>
+        <h1>Hernays Gonzalez Vibanco</h1>
+        <h2 class="hero__rol">Full-Stack Developer</h2>
+        <p class="hero__bajada" data-i18n="hero.tagline">Construyo microservicios, BFFs y aplicaciones web para banca y retail financiero, y en mi tiempo libre publico mis propios productos: desde una agenda de citas hasta un juego multijugador en Steam.</p>
+        <div class="hero__stack mono">Node.js · NestJS · TypeScript · Angular · Go · Docker · AWS</div>
+        <div class="hero__cta">
+          <a class="btn btn--primario" href="assets/cv-hernays-gonzalez.pdf" target="_blank" rel="noopener" data-i18n="hero.cv">Descargar CV</a>
+          <a class="btn" href="#contacto" data-i18n="hero.contact">Hablemos</a>
+          <a class="icono" href="https://www.linkedin.com/in/hernays-gonzalez-vibanco-37495219b/" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24"><path d="M4.98 3.5C4.98 4.88 3.87 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1s2.48 1.12 2.48 2.5zM.22 8h4.56v14H.22V8zm7.5 0h4.37v1.92h.06c.61-1.15 2.1-2.36 4.32-2.36 4.62 0 5.47 3.04 5.47 7v7.44h-4.56v-6.6c0-1.57-.03-3.6-2.2-3.6-2.2 0-2.53 1.72-2.53 3.49V22H7.72V8z"/></svg>
+          </a>
+          <a class="icono" href="https://github.com/hernaysdev" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.38c.6.12.82-.26.82-.58v-2.03c-3.34.73-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.08-.74.09-.73.09-.73 1.2.09 1.83 1.24 1.83 1.24 1.07 1.83 2.8 1.3 3.49 1 .1-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.14-.3-.54-1.52.1-3.18 0 0 1-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.28-1.55 3.29-1.23 3.29-1.23.64 1.66.24 2.88.12 3.18a4.65 4.65 0 0 1 1.23 3.22c0 4.61-2.8 5.63-5.48 5.92.42.36.81 1.1.81 2.22v3.29c0 .32.21.7.82.58A12 12 0 0 0 12 .3"/></svg>
+          </a>
         </div>
-        <footer>
-            <p>
-                © 2021 Copyright: Hernays Gonzalez
-            </p>
-        </footer>
-    </div>
-    <script src="assets/js/traductor.js"></script>
-    <script src="assets/js/traductorProyectos.js"></script>
-    <script src="assets/js/traductorContacto.js"></script>
-    <script src="assets/js/binamon.js"></script>
-    <script src="assets/js/scrollCajas.js"></script>
-    <script src="components/proyectos.js"></script>
-    <script src="components/contactos.js"></script>
+      </div>
+      <div class="hero__foto">
+        <img src="assets/img/foto-hernays.jpg" alt="Hernays Gonzalez" width="320" height="320">
+      </div>
+    </section>
+
+    <section class="seccion" id="sobre-mi">
+      <h2 class="titulo"><span class="mono">01.</span> <span data-i18n="about.title">Sobre mí</span></h2>
+      <div class="sobre">
+        <div class="sobre__texto">
+          <p data-i18n="about.p1">Soy Ingeniero en Sistemas con más de 6 años de experiencia como desarrollador Full-Stack. Trabajé para clientes como Falabella Financiero, Banco Estado y Movistar, sobre todo en backend: microservicios, Backend-for-Frontend, integraciones y pipelines de CI/CD, sin dejar el frontend con Angular.</p>
+          <p data-i18n="about.p2">Me gusta llevar las cosas hasta producción. Por eso, además del trabajo, mantengo mis propios productos en línea, con sus servidores, sus despliegues y usuarios reales.</p>
+          <p data-i18n="about.p3">Viví un año en Estados Unidos (2024–2025) perfeccionando mi inglés y trabajando en entornos multiculturales.</p>
+        </div>
+        <ul class="datos">
+          <li><span class="datos__num">6+</span><span data-i18n="about.years">años de experiencia</span></li>
+          <li><span class="datos__num">4</span><span data-i18n="about.clients">clientes corporativos (banca, retail, telco)</span></li>
+          <li><span class="datos__num">4</span><span data-i18n="about.products">productos propios en producción</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="seccion" id="experiencia">
+      <h2 class="titulo"><span class="mono">02.</span> <span data-i18n="exp.title">Experiencia</span></h2>
+      <ol class="linea">
+        <li class="linea__item linea__item--actual">
+          <div class="linea__fecha mono" data-i18n="exp.f.fecha">Feb 2026 — Actualidad</div>
+          <h3>Full-Stack Developer · <span class="acento">CodersLab</span></h3>
+          <p class="linea__cliente" data-i18n="exp.f.cliente">Cliente: Falabella Financiero — CMR México y Perú</p>
+          <ul>
+            <li data-i18n="exp.f.1">Onboarding digital de la tarjeta CMR en México: microservicios y BFFs para el alta de clientes, la evaluación, el login y la autenticación externa.</li>
+            <li data-i18n="exp.f.2">Validación biométrica de identidad contra el INE: servicios de ingreso y orquestación, stubs y mocks para pruebas de punta a punta.</li>
+            <li data-i18n="exp.f.3">Pago de servicios y recargas telefónicas con BFFs en GraphQL (Apollo Federation), cuentas de ahorro, transferencias y selector de medios de pago.</li>
+            <li data-i18n="exp.f.4">Servicios en Go (Gin) para sucursales y admisiones de clientes de tarjeta de crédito.</li>
+            <li data-i18n="exp.f.5">Infraestructura como código con Terraform: colas de RabbitMQ, el gateway Kong y secretos en Vault. Pipelines en GitLab CI y Jenkins con Docker, AWS ECR, SonarQube y Trivy, y monitoreo con Datadog.</li>
+          </ul>
+          <div class="chips"><span>NestJS</span><span>Fastify</span><span>TypeScript</span><span>Go · Gin</span><span>GraphQL</span><span>Apollo Federation</span><span>RabbitMQ</span><span>Redis</span><span>Kong</span><span>Terraform</span><span>Vault</span><span>Docker</span><span>AWS</span><span>GitLab CI</span><span>Jenkins</span><span>SonarQube</span><span>Trivy</span><span>Datadog</span><span>Jest</span><span>Cypress</span><span>Nx</span><span>Swagger</span></div>
+        </li>
+        <li class="linea__item">
+          <div class="linea__fecha mono">2024 — 2025</div>
+          <h3 data-i18n="exp.us.titulo">Experiencia internacional · Estados Unidos</h3>
+          <ul>
+            <li data-i18n="exp.us.1">Año de residencia dedicado a perfeccionar el inglés y a la comunicación en entornos multiculturales. En paralelo, desarrollé y mantuve DubeNails y ASR Performance.</li>
+          </ul>
+        </li>
+        <li class="linea__item">
+          <div class="linea__fecha mono" data-i18n="exp.be.fecha">Jul 2022 — Jul 2024</div>
+          <h3>Full-Stack Developer · <span class="acento">SIIGroup Chile</span></h3>
+          <p class="linea__cliente" data-i18n="exp.be.cliente">Cliente: Banco Estado</p>
+          <ul>
+            <li data-i18n="exp.be.1"><b>Vale Vista</b>: depósitos, gestión de vales e implementación de micro-frontends.</li>
+            <li data-i18n="exp.be.2"><b>Fondos Mutuos</b>: flujos de punta a punta en frontend y backend.</li>
+            <li data-i18n="exp.be.3"><b>Comercio Exterior</b>: módulos de consulta y construcción de APIs.</li>
+            <li data-i18n="exp.be.4"><b>Botón de Pago Empresas</b>: integración de servicios en AWS y procesos transaccionales.</li>
+          </ul>
+          <div class="chips"><span>Node.js</span><span>NestJS</span><span>Angular 12–16</span><span>Microservicios</span><span>Redis</span><span>MongoDB</span><span>SQL Server</span><span>AWS</span><span>CloudWatch</span><span>GitLab CI/CD</span><span>SonarQube</span><span>JMeter</span><span>Jest</span></div>
+        </li>
+        <li class="linea__item">
+          <div class="linea__fecha mono" data-i18n="exp.mx.fecha">Feb 2021 — Jun 2022</div>
+          <h3>Full-Stack Developer · <span class="acento">México Colectivo</span></h3>
+          <ul>
+            <li data-i18n="exp.mx.1">Nuevas funcionalidades en Angular para entidades públicas, con frontend y backend, integración con servicios REST en Node.js y MongoDB, metodología Scrum.</li>
+          </ul>
+          <div class="chips"><span>Angular</span><span>RxJS</span><span>Node.js</span><span>Express</span><span>MongoDB</span><span>JWT</span></div>
+        </li>
+        <li class="linea__item">
+          <div class="linea__fecha mono" data-i18n="exp.mv.fecha">Ene 2020 — Feb 2021</div>
+          <h3 data-i18n="exp.mv.titulo">Analista Programador · <span class="acento">Tarvos Limitada</span></h3>
+          <p class="linea__cliente" data-i18n="exp.mv.cliente">Cliente: Accenture Chile — Movistar</p>
+          <ul>
+            <li data-i18n="exp.mv.1">Mantenimiento y nuevas funcionalidades en las landings de ofertas de Movistar, optimizando rendimiento y usabilidad.</li>
+          </ul>
+          <div class="chips"><span>HTML</span><span>CSS / SASS</span><span>JavaScript</span><span>jQuery</span><span>PHP</span></div>
+        </li>
+        <li class="linea__item">
+          <div class="linea__fecha mono" data-i18n="exp.m58.fecha">Nov 2019 — Jun 2020</div>
+          <h3>Full-Stack Developer · <span class="acento">Mas58</span></h3>
+          <ul>
+            <li data-i18n="exp.m58.1">Aplicación web de gestión de ventas y logística: frontend en Angular y API en Node.js con Express y MySQL.</li>
+          </ul>
+          <div class="chips"><span>Angular</span><span>Node.js</span><span>Express</span><span>MySQL</span></div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="seccion" id="proyectos">
+      <h2 class="titulo"><span class="mono">03.</span> <span data-i18n="proj.title">Proyectos propios</span></h2>
+      <p class="seccion__bajada" data-i18n="proj.lead">Productos que diseñé, programé y mantengo en producción yo mismo, de punta a punta.</p>
+      <div class="tarjetas">
+        <article class="tarjeta tarjeta--destacada">
+          <div class="tarjeta__banda banda--aurok"><span>AUROK</span></div>
+          <div class="tarjeta__cuerpo">
+            <h3>AUROK <small class="mono">aurok.app</small></h3>
+            <p data-i18n="proj.aurok">Juego de acción multijugador (arena PvP y aventuras cooperativas) publicado en Steam, Google Play y App Store. Corre en servidores dedicados con autoridad en dos regiones (EE.UU. y Chile) y tiene backend propio de cuentas, tienda y pagos reales, un launcher de escritorio con parches automáticos y un sitio web.</p>
+            <div class="chips"><span>Godot 4 · GDScript</span><span>NestJS</span><span>Prisma</span><span>PostgreSQL</span><span>Rust</span><span>Electron</span><span>Angular</span><span>Steamworks</span><span>Cloudflare</span><span>Linux VPS</span></div>
+            <div class="tarjeta__links">
+              <a href="https://aurok.app" target="_blank" rel="noopener" data-i18n="proj.ver">Ver sitio →</a>
+              <a href="https://store.steampowered.com/app/5270410" target="_blank" rel="noopener">Steam →</a>
+            </div>
+          </div>
+        </article>
+        <article class="tarjeta">
+          <div class="tarjeta__banda banda--dube"><span>DubeNails</span></div>
+          <div class="tarjeta__cuerpo">
+            <h3>DubeNails <small class="mono">dubenails.com</small></h3>
+            <p data-i18n="proj.dube">App web instalable (PWA) para un salón de uñas: reservas por zona horaria del salón, agenda de la administradora, recordatorios automáticos, notificaciones push, catálogo de servicios y gift cards.</p>
+            <div class="chips"><span>Angular PWA</span><span>Express</span><span>MongoDB Atlas</span><span>Web Push</span><span>Cloudinary</span><span>node-cron</span></div>
+            <div class="tarjeta__links"><a href="https://dubenails.com" target="_blank" rel="noopener" data-i18n="proj.ver">Ver sitio →</a></div>
+          </div>
+        </article>
+        <article class="tarjeta">
+          <div class="tarjeta__banda banda--tools"><span>tusherramientas</span></div>
+          <div class="tarjeta__cuerpo">
+            <h3>tusherramientas.org</h3>
+            <p data-i18n="proj.tools">Herramientas gratuitas en línea para documentos: editor de PDF y Word, firma digital, OCR, combinar, dividir y comprimir PDF, y conversión de imágenes.</p>
+            <div class="chips"><span>Angular SSR</span><span>Express</span><span>pdf-lib</span><span>OCR</span><span>LibreOffice</span></div>
+            <div class="tarjeta__links"><a href="https://tusherramientas.org" target="_blank" rel="noopener" data-i18n="proj.ver">Ver sitio →</a></div>
+          </div>
+        </article>
+        <article class="tarjeta">
+          <div class="tarjeta__banda banda--asr"><span>ASR</span></div>
+          <div class="tarjeta__cuerpo">
+            <h3>ASR Performance <small class="mono">asrperformanceva.com</small></h3>
+            <p data-i18n="proj.asr">Sitio web para un taller de preparación de autos en Virginia, EE.UU.: servicios de dyno tuning, motores, fabricación y diagnóstico.</p>
+            <div class="chips"><span>Angular</span><span>SPA</span><span>SEO</span><span>Cloudflare</span></div>
+            <div class="tarjeta__links"><a href="https://asrperformanceva.com" target="_blank" rel="noopener" data-i18n="proj.ver">Ver sitio →</a></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="seccion" id="skills">
+      <h2 class="titulo"><span class="mono">04.</span> <span data-i18n="skills.title">Tecnologías</span></h2>
+      <div class="grupos">
+        <div class="grupo"><h3>Backend</h3><div class="chips"><span>Node.js</span><span>NestJS</span><span>Express</span><span>Fastify</span><span>Go · Gin</span><span>GraphQL</span><span>Apollo Federation</span><span>REST</span><span data-i18n="skills.micro">Microservicios</span><span>BFF</span><span>PHP</span></div></div>
+        <div class="grupo"><h3>Frontend</h3><div class="chips"><span>Angular</span><span>TypeScript</span><span>JavaScript</span><span>RxJS</span><span>React</span><span>HTML5</span><span>CSS3 / SASS</span><span>PWA</span><span>Micro-frontends</span><span>Nx</span></div></div>
+        <div class="grupo"><h3 data-i18n="skills.data">Datos y mensajería</h3><div class="chips"><span>PostgreSQL</span><span>Prisma</span><span>MySQL</span><span>SQL Server</span><span>MongoDB</span><span>Redis</span><span>RabbitMQ</span></div></div>
+        <div class="grupo"><h3>Cloud &amp; DevOps</h3><div class="chips"><span>Docker</span><span>AWS</span><span>Terraform</span><span>Kong</span><span>Vault</span><span>GitLab CI</span><span>Jenkins</span><span>Cloudflare</span><span>Linux</span><span>Nginx · pm2</span></div></div>
+        <div class="grupo"><h3 data-i18n="skills.quality">Calidad y observabilidad</h3><div class="chips"><span>Jest</span><span>Jasmine</span><span>Cypress</span><span>JMeter</span><span>SonarQube</span><span>Trivy</span><span>Datadog</span><span>CloudWatch</span><span>Postman</span><span>Mockoon</span></div></div>
+        <div class="grupo"><h3 data-i18n="skills.other">Otros</h3><div class="chips"><span>Godot · GDScript</span><span>Electron</span><span>Git · GitHub · GitLab</span><span>Scrum · Kanban</span><span>Jira</span></div></div>
+      </div>
+      <div class="estudios">
+        <div>
+          <h3 data-i18n="edu.title">Educación</h3>
+          <p data-i18n="edu.1"><b>Ingeniero en Sistemas</b> — Universidad Dr. José Gregorio Hernández, Venezuela (2021)</p>
+        </div>
+        <div>
+          <h3 data-i18n="edu.cert">Cursos</h3>
+          <p data-i18n="edu.2">Node: de cero a experto · Angular avanzado · Master en JavaScript · JavaScript moderno · Master en CSS</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="seccion" id="contacto">
+      <h2 class="titulo"><span class="mono">05.</span> <span data-i18n="contact.title">Contacto</span></h2>
+      <div class="contacto">
+        <div class="contacto__texto">
+          <p data-i18n="contact.lead">¿Tienes un proyecto, una vacante o solo quieres saludar? Escríbeme y te respondo.</p>
+          <ul class="contacto__datos">
+            <li><span class="mono">@</span> <a href="mailto:hernays12@gmail.com">hernays12@gmail.com</a></li>
+            <li><span class="mono">in</span> <a href="https://www.linkedin.com/in/hernays-gonzalez-vibanco-37495219b/" target="_blank" rel="noopener">LinkedIn</a></li>
+            <li><span class="mono">⌂</span> <span data-i18n="contact.place">La Serena, Chile</span></li>
+          </ul>
+        </div>
+        <form class="form" id="formulario" novalidate>
+          <label><span data-i18n="contact.name">Nombre</span><input type="text" name="nombre" maxlength="100" required autocomplete="name"></label>
+          <label><span data-i18n="contact.email">Correo</span><input type="email" name="correo" maxlength="150" required autocomplete="email"></label>
+          <label><span data-i18n="contact.msg">Mensaje</span><textarea name="mensaje" rows="5" maxlength="3000" required></textarea></label>
+          <input type="text" name="sitio" class="trampa" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <button class="btn btn--primario" type="submit" data-i18n="contact.send">Enviar mensaje</button>
+          <p class="form__estado" id="estado" role="status"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <p>© <span id="anio">2026</span> Hernays Gonzalez Vibanco</p>
+  </footer>
+
+  <script src="assets/js/app.js"></script>
 </body>
-
 </html>

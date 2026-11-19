@@ -21,7 +21,7 @@ class Server {
     }
     router() {
         this.app.use(express.static(this.__dirname + '/public'));
-        this.app.use('/correo', correoController);
+        this.app.post('/correo', correoController);
     }
 
     iniciar() {
