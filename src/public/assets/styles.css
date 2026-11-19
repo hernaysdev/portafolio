@@ -222,7 +222,7 @@ h1, h2, h3 { line-height: 1.2; margin: 0; }
 .tarjeta h3 small { font-size: 12px; color: var(--texto-suave); font-weight: 400; }
 .tarjeta p { color: var(--texto-suave); margin: 10px 0 0; }
 .tarjeta .chips { margin-bottom: 18px; }
-.tarjeta__links { margin-top: auto; display: flex; gap: 20px; font-weight: 600; font-size: 15px; }
+.tarjeta__links { margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px 20px; font-weight: 600; font-size: 15px; }
 
 /* Tecnologías */
 .grupos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
